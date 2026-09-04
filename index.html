@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>😉 תמונה מיוחדת, כמעט כמוך </title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at center, #3b0a32, #12000f 70%);
+
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .photo {
+            width: min(80vw, 400px);
+            height: min(80vw, 400px);
+
+            object-fit: cover;
+
+            border-radius: 25px;
+
+            border: 5px solid white;
+
+            box-shadow:
+                0 0 20px #ff4da6,
+                0 0 50px #ff1493;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: white;
+            text-shadow:
+                0 0 10px #ff4da6,
+                0 0 25px #ff1493;
+
+            margin-bottom: 25px;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: fixed;
+            color: white;
+            animation: sparkle 2s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            from {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>❤️ רגע קטן ומיוחד ❤️</h1>
+
+        <img
+            src="photo.jpg"
+            class="photo"
+            alt="תמונה"
+        >
+
+    </div>
+
+    <!-- לבבות -->
+    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
+    <div class="heart" style="left:40%; animation-delay:4s;">💗</div>
+    <div class="heart" style="left:60%; animation-delay:1s;">❤️</div>
+    <div class="heart" style="left:75%; animation-delay:3s;">💖</div>
+    <div class="heart" style="left:90%; animation-delay:5s;">💕</div>
+
+    <!-- נצנצים -->
+    <div class="sparkle" style="top:15%; left:15%;">✦</div>
+    <div class="sparkle" style="top:30%; left:85%;">✧</div>
+    <div class="sparkle" style="top:70%; left:10%;">✦</div>
+    <div class="sparkle" style="top:80%; left:90%;">✧</div>
+
+</body>
+</html>

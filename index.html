@@ -4,36 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>😉 תמונה מיוחדת, כמעט כמוך </title>
+    <title>❤️ תמונה מיוחדת ❤️</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
             margin: 0;
-            min-height: 100vh;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4a1045 0%,
+                    #21001d 45%,
+                    #0d000b 100%
+                );
+
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* כל התוכן */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
 
             display: flex;
             justify-content: center;
             align-items: center;
-
-            background:
-                radial-gradient(circle at center, #3b0a32, #12000f 70%);
-
-            font-family: Arial, sans-serif;
         }
 
-        .container {
-            position: relative;
+        /* הכותרת */
+        h1 {
+            position: absolute;
+
+            top: 12%;
+
+            width: 100%;
+            padding: 0 20px;
+
             text-align: center;
+
+            color: white;
+
+            font-size: clamp(22px, 6vw, 36px);
+
+            text-shadow:
+                0 0 8px #ff69b4,
+                0 0 18px #ff1493,
+                0 0 30px #ff1493;
+
+            z-index: 5;
+
+            margin: 0;
         }
 
+        /* התמונה */
         .photo {
-            width: min(80vw, 400px);
-            height: min(80vw, 400px);
+            width: min(82vw, 420px);
+            height: min(82vw, 420px);
 
             object-fit: cover;
 
@@ -42,66 +81,129 @@
             border: 5px solid white;
 
             box-shadow:
-                0 0 20px #ff4da6,
-                0 0 50px #ff1493;
+                0 0 15px #ff69b4,
+                0 0 35px #ff1493,
+                0 0 70px rgba(255, 20, 147, 0.7);
 
-            position: relative;
-            z-index: 2;
+            z-index: 3;
+
+            /* מרימה מעט את התמונה כדי שהמרכז שלה
+               יהיה בדיוק באזור המרכז של המסך */
+            transform: translateY(2vh);
         }
 
-        h1 {
-            color: white;
-            text-shadow:
-                0 0 10px #ff4da6,
-                0 0 25px #ff1493;
-
-            margin-bottom: 25px;
-        }
-
+        /* לבבות */
         .heart {
             position: fixed;
+
+            bottom: -60px;
+
             font-size: 30px;
-            animation: float 6s linear infinite;
+
             pointer-events: none;
+
+            animation:
+                floatUp 7s linear infinite;
+
+            z-index: 1;
         }
 
-        @keyframes float {
+        @keyframes floatUp {
+
             0% {
-                transform: translateY(110vh) rotate(0deg);
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.8);
+
                 opacity: 0;
             }
 
-            20% {
+            10% {
                 opacity: 1;
             }
 
-            80% {
+            50% {
+                transform:
+                    translateY(-50vh)
+                    rotate(180deg)
+                    scale(1);
+            }
+
+            90% {
                 opacity: 1;
             }
 
             100% {
-                transform: translateY(-20vh) rotate(360deg);
+                transform:
+                    translateY(-120vh)
+                    rotate(360deg)
+                    scale(1.2);
+
                 opacity: 0;
             }
         }
 
+        /* נצנצים */
         .sparkle {
             position: fixed;
+
             color: white;
-            animation: sparkle 2s infinite alternate;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            animation:
+                sparkleAnimation 2s ease-in-out infinite alternate;
+
+            z-index: 1;
         }
 
-        @keyframes sparkle {
+        @keyframes sparkleAnimation {
+
             from {
                 opacity: 0.2;
-                transform: scale(0.5);
+                transform: scale(0.5) rotate(0deg);
             }
 
             to {
                 opacity: 1;
-                transform: scale(1.5);
+                transform: scale(1.4) rotate(90deg);
             }
         }
+
+        /* התאמות לטלפונים קטנים */
+        @media (max-height: 700px) {
+
+            h1 {
+                top: 7%;
+                font-size: 21px;
+            }
+
+            .photo {
+                width: 72vw;
+                height: 72vw;
+
+                transform: translateY(3vh);
+            }
+        }
+
+        /* מסכים גבוהים */
+        @media (min-height: 800px) and (max-width: 600px) {
+
+            h1 {
+                top: 13%;
+            }
+
+            .photo {
+                width: 78vw;
+                height: 78vw;
+
+                transform: translateY(1vh);
+            }
+        }
+
     </style>
 </head>
 
@@ -109,29 +211,71 @@
 
     <div class="container">
 
-        <h1>😉 תמונה מיוחדת, כמעט כמוך</h1>
+        <h1>
+            ❤️ תמונה מיוחדת, כמעט כמוך 😉
+        </h1>
 
         <img
             src="Noya.jpg"
             class="photo"
-            alt="תמונה"
+            alt="תמונה מיוחדת"
         >
 
     </div>
 
-    <!-- לבבות -->
-    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
-    <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
-    <div class="heart" style="left:40%; animation-delay:4s;">💗</div>
-    <div class="heart" style="left:60%; animation-delay:1s;">❤️</div>
-    <div class="heart" style="left:75%; animation-delay:3s;">💖</div>
-    <div class="heart" style="left:90%; animation-delay:5s;">💕</div>
 
-    <!-- נצנצים -->
-    <div class="sparkle" style="top:15%; left:15%;">✦</div>
-    <div class="sparkle" style="top:30%; left:85%;">✧</div>
-    <div class="sparkle" style="top:70%; left:10%;">✦</div>
-    <div class="sparkle" style="top:80%; left:90%;">✧</div>
+    <!-- ❤️ לבבות -->
+
+    <div class="heart" style="left: 5%; animation-delay: 0s;">
+        ❤️
+    </div>
+
+    <div class="heart" style="left: 20%; animation-delay: 2s;">
+        💕
+    </div>
+
+    <div class="heart" style="left: 35%; animation-delay: 4s;">
+        💗
+    </div>
+
+    <div class="heart" style="left: 55%; animation-delay: 1s;">
+        ❤️
+    </div>
+
+    <div class="heart" style="left: 72%; animation-delay: 3s;">
+        💖
+    </div>
+
+    <div class="heart" style="left: 88%; animation-delay: 5s;">
+        💕
+    </div>
+
+
+    <!-- ✨ נצנצים -->
+
+    <div class="sparkle" style="top: 15%; left: 10%;">
+        ✦
+    </div>
+
+    <div class="sparkle" style="top: 25%; left: 88%;">
+        ✧
+    </div>
+
+    <div class="sparkle" style="top: 55%; left: 7%;">
+        ✦
+    </div>
+
+    <div class="sparkle" style="top: 70%; left: 92%;">
+        ✧
+    </div>
+
+    <div class="sparkle" style="top: 85%; left: 18%;">
+        ✦
+    </div>
+
+    <div class="sparkle" style="top: 80%; left: 80%;">
+        ✧
+    </div>
 
 </body>
 </html>
